@@ -81,9 +81,8 @@ class Restaurant_pizzasResource(Resource):
             db.session.add(new_restaurant_pizza)
             db.session.commit()
             return RestaurantPizza.query.first().to_dict(), 201
-        except ValueError as e:
-            return e, 400
-
+        except ValueError as error:
+            return error, 500
 
 @app.route("/")
 def index():
